@@ -13,7 +13,7 @@ type User struct {
 	Password  string         `json:"-"`
 	Username  string         `json:"username"`
 	Phone     uint           `json:"phone"`
-	Address   string         `json:"adress"`
+	Address   string         `json:"address"`
 	CreatedAt time.Time      `json:"created_at"`
 	UpdatedAt time.Time      `json:"update_at"`
 	DeletedAt gorm.DeletedAt `json:"-"`

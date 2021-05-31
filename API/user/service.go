@@ -142,6 +142,14 @@ func (s *service) UpdateUserByID(ID string, dataInput entity.UpdateUserInput) (U
 		dataUpdate["email"] = dataInput.Email
 	}
 
+	if dataInput.Username != "" || len(dataInput.Username) != 0 {
+		dataUpdate["username"] = dataInput.Username
+	}
+
+	if dataInput.Address != "" || len(dataInput.Address) != 0 {
+		dataUpdate["email"] = dataInput.Address
+	}
+
 	dataUpdate["updated_at"] = time.Now()
 
 	// fmt.Println(dataUpdate)
