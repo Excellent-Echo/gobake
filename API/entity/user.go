@@ -34,7 +34,6 @@ type UpdateUserInput struct {
 	LastName  string `json:"last_name"`
 	Email     string `json:"email"`
 	Username  string `json:"username"`
-	Phone     uint   `json:"phone"`
 	Address   string `json:"address"`
 }
 

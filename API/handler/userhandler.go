@@ -7,6 +7,7 @@ import (
 	"go-bake/helper"
 	"go-bake/user"
 	"net/http"
+	"strconv"
 )
 
 type userHandler struct {
@@ -100,16 +101,16 @@ func (h *userHandler) UpdateUserByIDHandler(c *gin.Context) {
 		return
 	}
 
-	// idParam, _ := strconv.Atoi(id)
+	idParam, _ := strconv.Atoi(id)
 
-	// userData := int(c.MustGet("currentUser").(int))
+	userData := int(c.MustGet("currentUser").(int))
 
-	// if idParam != userData {
-	// 	responseError := helper.APIResponse("Unauthorize", 401, "error", gin.H{"error": "User id not authorize"})
+	if idParam != userData {
+		responseError := helper.APIResponse("Unauthorize", 401, "error", gin.H{"error": "User id not authorize"})
 
-	// 	c.JSON(401, responseError)
-	// 	return
-	// }
+		c.JSON(401, responseError)
+		return
+	}
 
 	user, err := h.userService.UpdateUserByID(id, updateUserInput)
 	if err != nil {
