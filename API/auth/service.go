@@ -2,10 +2,11 @@ package auth
 
 import (
 	"errors"
-	"github.com/dgrijalva/jwt-go"
-	"github.com/joho/godotenv"
 	"log"
 	"os"
+
+	"github.com/dgrijalva/jwt-go"
+	"github.com/joho/godotenv"
 )
 
 var (
@@ -14,7 +15,7 @@ var (
 )
 
 type Service interface {
-	GenerateToken(ID uint32) (string, error)
+	GenerateToken(Role string) (string, error)
 	ValidateToken(encodedToken string) (*jwt.Token, error)
 }
 
@@ -25,7 +26,7 @@ func NewService() *jwtService {
 	return &jwtService{}
 }
 
-func (s *jwtService) GenerateToken(ID uint32) (string, error) {
+func (s *jwtService) GenerateToken(Role string) (string, error) {
 
 	err := godotenv.Load()
 
@@ -36,7 +37,7 @@ func (s *jwtService) GenerateToken(ID uint32) (string, error) {
 	key := os.Getenv("SECRET_KEY")
 
 	claim := jwt.MapClaims{
-		"user_id": ID,
+		"role": Role,
 	}
 
 	//generate token useing HS256

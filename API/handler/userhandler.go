@@ -1,13 +1,14 @@
 package handler
 
 import (
-	"github.com/gin-gonic/gin"
 	"go-bake/auth"
 	"go-bake/entity"
 	"go-bake/helper"
 	"go-bake/user"
 	"net/http"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 type userHandler struct {
@@ -160,7 +161,8 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 		return
 	}
 
-	token, err := h.authService.GenerateToken(userData.ID)
+	// token, err := h.authService.GenerateToken(userData.ID)
+	token, err := h.authService.GenerateToken(string(userData.Role))
 
 	if err != nil {
 		splitError := helper.SplitErrorInformation(err)

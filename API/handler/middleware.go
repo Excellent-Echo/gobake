@@ -38,8 +38,8 @@ func MiddleWare(userService user.Service, authService auth.Service) gin.HandlerF
 			return
 		}
 
-		userID := int(claim["user_id"].(float64))
+		role := claim["role"]
 
-		c.Set("currentUser", userID)
+		c.Set("currentUser", role)
 	}
 }
