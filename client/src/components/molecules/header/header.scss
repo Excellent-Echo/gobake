@@ -1,0 +1,37 @@
+$primarycolor:#ff96ad;
+$secondarycolor :#005a8d;
+
+.header-wrapper {
+    width: 100%;
+    background-color: $primarycolor;
+    color: white;
+
+    .header {
+        width: 1200px;
+        min-width: 90%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        align-items: center;
+        height: 70px;
+
+
+        .navbar {
+            width: 10%;
+
+            ul {
+                list-style: none;
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+
+                li {
+                    text-transform: uppercase;
+                    .cart-qty{
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
