@@ -12,7 +12,7 @@ function App() {
       <Header />
   </div>
     <Switch>
-      <Route path="/login"><Login /></Route>
+        <Route path="/login"><Login /></Route>
         <Route path="/register"><Register/></Route>
     </Switch>
    </Router>

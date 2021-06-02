@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { API_URL, resetForm } from "../../utils/utils";
 import swal from "sweetalert";
+import "./register.scss"
 
 function Register() {
   const [inputFirst, setInputFirst] = useState("");

@@ -1,0 +1,22 @@
+.regis-wrapper{
+    width: 100%;
+    background-color: aqua;
+
+    .regis{
+        width: 1000px;
+        min-width: 90%;
+        align-items: center;
+        height: fit-content;
+        
+        #regis-form{
+            h2{
+                text-align: center;
+            }
+            .input-container{
+                text-align: center;
+                
+            }
+        }
+        
+    }
+}
