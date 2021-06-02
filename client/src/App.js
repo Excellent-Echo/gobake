@@ -10,16 +10,21 @@ function App() {
   return (
    
       
-  <div>
-    <Header />
-  <Router>
-    <Switch>
-      <Route path="/login"><Login /></Route>
-        <Route path="/register"><Register/></Route>
-    </Switch>
-   </Router>
-   <Footer/>
-  </div>
+    <Router>
+    <div>
+       <Header />
+   </div>
+     <Switch>
+       <Route path="/login"><Login /></Route>
+         <Route path="/register"><Register/></Route>
+     </Switch>
+     <Footer/>
+    </Router>
+      
+  
+    
+  
+
    
   )
 }
