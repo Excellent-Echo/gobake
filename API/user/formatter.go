@@ -6,13 +6,13 @@ import (
 )
 
 type UserFormat struct {
-	ID        uint32 `json: "id"`
+	ID        uint32 `json:"id"`
 	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
 	Username  string `json:"username"`
-	Address   string `json:"address`
+	Address   string `json:"address"`
 	Phone     uint   `json:"phone"`
-	Email     string `json: "email"`
+	Email     string `json:"email"`
 }
 
 type DeleteFormat struct {

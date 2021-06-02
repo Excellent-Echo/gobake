@@ -1,12 +1,21 @@
 package entity
 
 import (
-	"gorm.io/gorm"
 	"time"
+
+	"gorm.io/gorm"
+)
+
+type UserRole string
+
+const (
+	Admin    UserRole = "admin"
+	Customer UserRole = "customer"
 )
 
 type User struct {
-	ID        uint32         `gorm:"primarykey" json: "id"`
+	ID        uint32         `gorm:"primarykey" json:"id"`
+	Role      UserRole       `gorm:"default:customer" json:"role"`
 	FirstName string         `json:"first_name"`
 	LastName  string         `json:"last_name"`
 	Email     string         `json:"email"`

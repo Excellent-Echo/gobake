@@ -1,13 +1,14 @@
 package handler
 
 import (
-	"github.com/gin-gonic/gin"
 	"go-bake/auth"
 	"go-bake/entity"
 	"go-bake/helper"
 	"go-bake/user"
 	"net/http"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 type userHandler struct {
@@ -65,7 +66,7 @@ func (h *userHandler) CreateUserHandler(c *gin.Context) {
 		return
 	}
 
-	response := helper.APIResponse("successget all user", 201, "status created", newUser)
+	response := helper.APIResponse("success create user", 201, "status created", newUser)
 	c.JSON(200, response)
 }
 
@@ -81,7 +82,7 @@ func (h *userHandler) GetUserByIDHandler(c *gin.Context) {
 		return
 	}
 
-	response := helper.APIResponse("successget get user by id", 200, "succes", user)
+	response := helper.APIResponse("success get user by id", 200, "succes", user)
 	c.JSON(200, response)
 
 }
@@ -160,7 +161,8 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 		return
 	}
 
-	token, err := h.authService.GenerateToken(userData.ID)
+	// token, err := h.authService.GenerateToken(userData.ID)
+	token, err := h.authService.GenerateToken(string(userData.Role))
 
 	if err != nil {
 		splitError := helper.SplitErrorInformation(err)
@@ -170,6 +172,6 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 		return
 	}
 
-	response := helper.APIResponse("succees login user", 200, "success", gin.H{"token": token})
+	response := helper.APIResponse("succees login user", 200, "success", gin.H{"token": token, "data": userData})
 	c.JSON(200, response)
 }
