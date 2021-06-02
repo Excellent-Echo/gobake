@@ -1,11 +1,12 @@
 package route
 
 import (
-	"github.com/gin-gonic/gin"
 	"go-bake/auth"
 	"go-bake/config"
 	"go-bake/handler"
 	"go-bake/user"
+
+	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
