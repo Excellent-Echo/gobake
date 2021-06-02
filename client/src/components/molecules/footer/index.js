@@ -1,51 +1,57 @@
+import React from 'react';
 import { FontAwesomeIcon, faBirthdayCake} from '../../../assets/index'
-import React from "react";
-import "./Footer.css";
 
-function Footer() {
+import {
+  FaFacebook,
+  FaInstagram,
+  FaYoutube,
+  FaTwitter,
+  FaLinkedin
+} from 'react-icons/fa';
+import {
+  FooterContainer,
+  FooterWrap,
+  SocialMedia,
+  SocialMediaWrap,
+  SocialIcons,
+  SocialLogo,
+  SocialIconLink
+} from './FooterElements';
+
+const Footer = () => {
   return (
-    <div className="main-footer">
-      <div className="container">
-        <div className="row">
-          {/* Column1 */}
-          <div className="col">
-          <div className="logo">
-                    <h2><FontAwesomeIcon icon={faBirthdayCake} /> GO-BAKE</h2>
-                </div>
-            <h1 className="list-unstyled">
-              <li>021-556-3737</li>
-              <li>Jakarta, Indonesia</li>
-              <li>Jl. Kaliadem No. 66 Tebet, jakarta Selatan</li>
-            </h1>
-          </div>
-          {/* Column2 */}
-          <div className="col">
-            <h4>Sosial Media</h4>
-            <ui className="list-unstyled">
-              <li>Instagram</li>
-              <li>Facebook</li>
-              <li>Twitter</li>
-            </ui>
-          </div>
-          {/* Column3 */}
-          <div className="col">
-            <h4>Our Service</h4>
-            <ui className="list-unstyled">
-              <li>Go-Bake Instan</li>
-              <li>Go-Bake Delivery</li>
-            </ui>
-          </div>
-        </div>
-        <hr />
-        <div className="row">
-          <p className="col-sm">
-            &copy;{new Date().getFullYear()} Go-Bake Indonesia | All rights reserved |
-            Terms Of Service | Privacy
-          </p>
-        </div>
-      </div>
-    </div>
+    <FooterContainer>
+      <FooterWrap>
+        <SocialMedia>
+          <SocialMediaWrap>
+          <SocialLogo to='/'><h2><FontAwesomeIcon icon={faBirthdayCake} /> GO-BAKE</h2></SocialLogo>
+            <SocialIcons>
+              <SocialIconLink href='/' target='_blank' aria-label='Facebook'>
+                <FaFacebook />
+              </SocialIconLink>
+              <SocialIconLink href='/' target='_blank' aria-label='Instagram'>
+                <FaInstagram />
+              </SocialIconLink>
+              <SocialIconLink href='/' target='_blank' aria-label='Youtube'>
+                <FaYoutube />
+              </SocialIconLink>
+              <SocialIconLink
+                href='//www.twitter.com/briandesignz'
+                target='_blank'
+                aria-label='Twitter'
+                rel='noopener noreferrer'
+              >
+                <FaTwitter />
+              </SocialIconLink>
+              <SocialIconLink href='/' target='_blank' aria-label='Linkedin'>
+                <FaLinkedin />
+              </SocialIconLink>
+            </SocialIcons>
+          </SocialMediaWrap>
+        </SocialMedia>
+      </FooterWrap>
+    </FooterContainer>
   );
-}
+};
 
 export default Footer;
