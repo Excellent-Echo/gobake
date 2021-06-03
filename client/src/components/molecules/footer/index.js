@@ -1,4 +1,4 @@
-
+import { FontAwesomeIcon, faBirthdayCake} from '../../../assets/index'
 import React from "react";
 import "./Footer.css";
 
@@ -9,7 +9,9 @@ function Footer() {
         <div className="row">
           {/* Column1 */}
           <div className="col">
-            <h4>GO-BAKE</h4>
+          <div className="logo">
+                    <h2><FontAwesomeIcon icon={faBirthdayCake} /> GO-BAKE</h2>
+                </div>
             <h1 className="list-unstyled">
               <li>021-556-3737</li>
               <li>Jakarta, Indonesia</li>
