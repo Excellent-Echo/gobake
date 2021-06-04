@@ -15,7 +15,7 @@ var (
 )
 
 type Service interface {
-	GenerateToken(Role string) (string, error)
+	GenerateToken(ID int) (string, error)
 	ValidateToken(encodedToken string) (*jwt.Token, error)
 }
 
@@ -26,7 +26,7 @@ func NewService() *jwtService {
 	return &jwtService{}
 }
 
-func (s *jwtService) GenerateToken(Role string) (string, error) {
+func (s *jwtService) GenerateToken(ID int) (string, error) {
 
 	err := godotenv.Load()
 
@@ -37,7 +37,7 @@ func (s *jwtService) GenerateToken(Role string) (string, error) {
 	key := os.Getenv("SECRET_KEY")
 
 	claim := jwt.MapClaims{
-		"role": Role,
+		"user_id": ID,
 	}
 
 	//generate token useing HS256

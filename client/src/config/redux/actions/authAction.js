@@ -2,17 +2,18 @@ import { LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, REGISTER_FAIL, REGISTER_SUCCESS } fr
 import axios from 'axios';
 import swal from 'sweetalert'
 import { API_URL } from "../../../utils/utils";
-import {useSelector} from 'react-redux'
 
 
-
+//fungsi untuk resgister
+//param data =ambil data dri input, reset = reset form
+//history = jika register berhasil lempar url ke login page
 export const registerToAPI = (data, reset, history) => async (dispatch) => {
     await axios.post(`${API_URL}/users/register`, data)
     .then((res) => {
         swal("Resgister success!", "", "success");
         setTimeout(() => {
             history.push("/login")
-        }, 2000)
+        }, 1500)
         dispatch({
             type: REGISTER_SUCCESS
         })
@@ -29,6 +30,8 @@ export const registerToAPI = (data, reset, history) => async (dispatch) => {
 export const loginToAPI = (data, reset, history) => async (dispatch) => {
     await axios.post(`${API_URL}/users/login`, data)
     .then((res)=>{
+
+        //set user dlm local storage jika token ada
         if (res.data.data.token) {
             localStorage.setItem("user", JSON.stringify(res.data.data))
         }

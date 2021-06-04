@@ -1,4 +1,4 @@
-import { FontAwesomeIcon, faBirthdayCake, faShoppingCart, faUser } from '../../../assets/index'
+import { FontAwesomeIcon, faBirthdayCake, faShoppingCart, faUser, logo } from '../../../assets/index'
 import React from 'react'
 import "./header.scss"
 import {useHistory} from "react-router-dom"
@@ -22,7 +22,7 @@ function Header() {
             <div className="header">
 
                 <div className="logo">
-                    <h2 onClick={() => history.push("/")}><FontAwesomeIcon icon={faBirthdayCake} /> GO-BAKE</h2>
+                    <h2 onClick={() => history.push("/")}> <img src={logo} alt="logo" /> GO-BAKE</h2>
                 </div>
 
                 <nav className="navbar">
