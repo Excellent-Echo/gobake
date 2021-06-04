@@ -1,0 +1,89 @@
+$primarycolor:#94d0cc;
+$secondaryColor: #eb5454;
+
+.regis-wrapper {
+    width: 100%;
+    padding: 2em 0;
+
+    .regis {
+        max-width: 1200px;
+        min-width: 90%;
+        margin: 0 auto;
+
+        #regis-form {
+            width: 400px;
+            height: 700px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 1em 2em;
+            box-shadow: 1px 1px 5px 0px rgba(51,51,51,1);
+            border-radius: 12px;
+
+            .register-title {
+                text-align: center;
+                margin: .5em 0;
+            }
+
+            .input-container {
+                display: flex;
+                flex-direction: column;
+                margin: 1em auto;
+
+                label {
+                    color: #333;
+                    font-size: .9em;
+                }
+
+                input {
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: .5em 0;
+                    border: none;
+                    color: #333;
+                    border-bottom: 2px solid #ccc;
+                    outline: none;
+                    font-size: 1em;
+                }
+            }
+            
+            .btn-regis {
+                button {
+                    width: 100%;
+                    padding: .5em 1em;
+                    border-radius: 34px;
+                    border: none;
+                    background-color: $secondaryColor;
+                    color: white;
+                    font-size: 1em;
+                    font-weight: bold;
+
+                    &:hover {
+                        background-color: #cf4242;
+                        cursor: pointer;
+                    }
+                }
+            }
+        
+        }
+    }
+}
+
+@media screen and (max-width:1125px) {
+    .regis-wrapper {
+        width: 100%;
+        padding: 2em 0;
+    
+        .regis {
+            width: 90%;
+    }}    
+}
+
+@media screen and (max-width: 576px) {
+    .regis-wrapper {
+        .regis {
+            #regis-form {
+                width: 100%;
+            }
+        }
+    }
+}

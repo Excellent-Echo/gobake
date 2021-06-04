@@ -2,14 +2,15 @@ package helper
 
 import (
 	"errors"
-	"github.com/go-playground/validator/v10"
 	"math"
 	"strconv"
+
+	"github.com/go-playground/validator/v10"
 )
 
 type Response struct {
 	Meta Meta        `json:"meta"`
-	Data interface{} `json:"data`
+	Data interface{} `json:"data"`
 }
 
 type Meta struct {

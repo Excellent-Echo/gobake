@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import Axios from "axios";
-import { API_URL, resetForm } from "../../utils/utils";
-import swal from "sweetalert";
+import { resetForm } from "../../utils/utils";
+import {Redirect, useHistory} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux'
+import { registerToAPI } from "../../config/redux/actions/authAction";
+
+import "./register.scss"
 
 function Register() {
   const [inputFirst, setInputFirst] = useState("");
@@ -10,8 +13,13 @@ function Register() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [inputPhone, setInputPhone] = useState("");
+  const {isLogin} = useSelector(state => state.authReducer)
 
-  const handleSubmit = (e) => {
+  const history = useHistory();
+
+  const dispatch = useDispatch()
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = {
@@ -23,28 +31,21 @@ function Register() {
       phone: parseInt(inputPhone),
       address: "-",
     };
+    
+    dispatch(registerToAPI(data, resetForm("regis-form"), history))
 
-    console.log(data);
-
-    Axios.post(`${API_URL}/users/register`, data)
-      .then((res) => {
-        swal("Resgister success!", "", "success");
-        resetForm("regis-form")
-        console.log(res);
-      })
-      .catch((err) => console.log(err.message));
   };
 
-  
-  
-  
 
+  if (isLogin) {
+    return <Redirect to="/" />
+}
+   
   return (
     <div className="regis-wrapper">
       <div className="regis">
         <form onSubmit={handleSubmit} id="regis-form">
-          <h2>Create new account</h2>
-
+          <h2 className="register-title">Create new account</h2>
           <div className="input-container">
             <label htmlFor="firstname">First name</label>
             <input

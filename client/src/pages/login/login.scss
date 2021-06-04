@@ -1,0 +1,113 @@
+$primarycolor:#94d0cc;
+$secondaryColor: #eb5454;
+
+.login-wrapper {
+    width: 100%;
+    padding: 2em 0;
+    
+    .login {
+        min-width: 90%;
+        max-width: 1200px;
+        min-height: 80vh;
+        margin: 0 auto;
+
+        #login-form {
+            width: 400px;
+            height: 500px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 1em 2em;
+            box-shadow: 1px 1px 5px 0px rgba(51,51,51,1);
+            border-radius: 12px;
+
+            .login-title {
+                text-align: center;
+                margin: .5em 0;
+            }        
+
+            .input-container {
+                display: flex;
+                flex-direction: column;
+                margin: 1em auto;
+
+                label {
+                    color: #333;
+                    font-size: .9em;
+                }
+
+                input {
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: .5em 0;
+                    border: none;
+                    color: #333;
+                    border-bottom: 2px solid #ccc;
+                    outline: none;
+                    font-size: 1em;
+                }
+            }
+
+            .forgot-login {
+                display: flex;
+                justify-content: flex-end;
+                color: #333;
+                margin: 1em 0;
+                
+                p {
+                    cursor: pointer;
+                    &:hover {
+                        color: #555;
+                    }
+                }
+            }
+
+            .btn-login {
+                button {
+                    width: 100%;
+                    padding: .5em 1em;
+                    border-radius: 34px;
+                    border: none;
+                    background-color: $secondaryColor;
+                    color: white;
+                    font-size: 1em;
+                    font-weight: bold;
+
+                    &:hover {
+                        background-color: #cf4242;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .toRegister {
+                display: flex;
+                text-align: center;
+                height: 150px;
+                align-items: center;
+                justify-content: center;
+                color: #333;
+                
+                p {
+                    cursor: pointer;
+                }
+            } 
+        }
+    }
+}
+
+@media screen and(max-width: 1125px) {
+    .login-wrapper {
+        .login {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .login-wrapper {
+        .login {
+            #login-form {
+                width: 100%;
+            }
+        }
+    }
+}

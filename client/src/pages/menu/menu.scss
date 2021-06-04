@@ -1,0 +1,47 @@
+.menu-wrapper {
+    width: 100%;
+
+    .menu {
+        min-width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .menu-title {
+            margin: 1em 0;
+        }
+
+        .menu-card {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2em;
+        }
+    }
+}
+
+@media screen and(max-width: 1125px) {
+    .menu-wrapper {
+        .menu {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and(max-width: 768px) {
+    .menu-wrapper {
+        .menu {
+            .menu-card {
+                    grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .menu-wrapper {
+        .menu {
+            .menu-card {
+                    grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}

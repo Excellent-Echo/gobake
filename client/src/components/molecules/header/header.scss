@@ -1,5 +1,4 @@
-$primarycolor:#ff96ad;
-$secondarycolor :#005a8d;
+$primarycolor:#ee9595;
 
 .header-wrapper {
     width: 100%;
@@ -7,14 +6,19 @@ $secondarycolor :#005a8d;
     color: white;
 
     .header {
-        width: 1200px;
         min-width: 90%;
+        max-width: 1200px;
         display: flex;
         justify-content: space-between;
         margin: 0 auto;
         align-items: center;
         height: 70px;
 
+        .logo {
+            h2 {
+                cursor: pointer;
+            }
+        }
 
         .navbar {
             width: 10%;
@@ -30,7 +34,27 @@ $secondarycolor :#005a8d;
                     .cart-qty{
                         font-size: 12px;
                     }
+
+                    &.login-header {
+                        cursor: pointer;
+                    }
+
+                    &.menu-header {
+                        cursor: pointer;
+                    }
                 }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1125px) {
+    .header-wrapper {
+        .header {
+            width: 90%;
+
+            .navbar {
+                width: 30%;
             }
         }
     }

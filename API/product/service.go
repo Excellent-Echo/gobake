@@ -64,12 +64,10 @@ func (s *service) GetProductByID(ID string) (ProductFormat, error) {
 func (s *service) SaveNewProduct(product entity.ProductInput) (ProductFormat, error) {
 
 	var newProduct = entity.Product{
-
 		ProductName: product.ProductName,
 		Stock:       product.Stock,
 		Price:       product.Price,
 		Description: product.Description,
-		Image:       product.Image,
 		CreatedAt:   time.Now(),
 		UpdatedAt:   time.Now(),
 	}
@@ -106,20 +104,16 @@ func (s *service) UpdateProductByID(ID string, dataInput entity.UpdateProductInp
 		dataUpdate["product_name"] = dataInput.ProductName
 	}
 
-	if dataInput.Stock != "" || len(dataInput.Stock) != 0 {
+	if dataInput.Stock < -1 {
 		dataUpdate["stock"] = dataInput.Stock
 	}
 
-	if dataInput.Price != "" || len(dataInput.Price) != 0 {
+	if dataInput.Price <= 0 {
 		dataUpdate["price"] = dataInput.Price
 	}
 
 	if dataInput.Description != "" || len(dataInput.Description) != 0 {
 		dataUpdate["description"] = dataInput.Description
-	}
-
-	if dataInput.Image != "" || len(dataInput.Image) != 0 {
-		dataUpdate["image"] = dataInput.Image
 	}
 
 	dataUpdate["updated_at"] = time.Now()
