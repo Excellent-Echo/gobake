@@ -17,11 +17,16 @@ $primarycolor:#ee9595;
         .logo {
             h2 {
                 cursor: pointer;
+                display: flex;
+                img {
+                    object-fit: contain;
+                    width: 32px;
+                }
             }
         }
 
         .navbar {
-            width: 10%;
+            width: 15%;
 
             ul {
                 list-style: none;

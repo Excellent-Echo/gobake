@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { resetForm } from "../../utils/utils";
-import {Redirect, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 import { registerToAPI } from "../../config/redux/actions/authAction";
 
@@ -16,10 +16,10 @@ function Register() {
   const {isLogin} = useSelector(state => state.authReducer)
 
   const history = useHistory();
-
+//dispatch untuk memanggil action
   const dispatch = useDispatch()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const data = {
@@ -36,9 +36,8 @@ function Register() {
 
   };
 
-
   if (isLogin) {
-    return <Redirect to="/" />
+    return history.push('/')
 }
    
   return (

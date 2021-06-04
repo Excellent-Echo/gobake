@@ -10,6 +10,7 @@ import {
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
 import banner from "./images/banner.png";
+import logo from './images/logo.png'
 
 const Loading = () => {
   return (
@@ -54,4 +55,5 @@ export {
   faFacebook,
   banner,
   Loading,
+  logo
 };

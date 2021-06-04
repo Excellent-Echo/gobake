@@ -162,7 +162,7 @@ func (h *userHandler) LoginUserHandler(c *gin.Context) {
 	}
 
 	// token, err := h.authService.GenerateToken(userData.ID)
-	token, err := h.authService.GenerateToken(string(userData.Role))
+	token, err := h.authService.GenerateToken(int(userData.ID))
 
 	if err != nil {
 		splitError := helper.SplitErrorInformation(err)
