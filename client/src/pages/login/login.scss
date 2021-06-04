@@ -1,28 +1,29 @@
 $primarycolor:#94d0cc;
 $secondaryColor: #eb5454;
 
-.regis-wrapper {
+.login-wrapper {
     width: 100%;
     padding: 2em 0;
-
-    .regis {
-        max-width: 1200px;
+    
+    .login {
         min-width: 90%;
+        max-width: 1200px;
+        min-height: 80vh;
         margin: 0 auto;
 
-        #regis-form {
+        #login-form {
             width: 400px;
-            height: 700px;
+            height: 500px;
             margin: 0 auto;
             box-sizing: border-box;
             padding: 1em 2em;
             box-shadow: 1px 1px 5px 0px rgba(51,51,51,1);
             border-radius: 12px;
 
-            .register-title {
+            .login-title {
                 text-align: center;
                 margin: .5em 0;
-            }
+            }        
 
             .input-container {
                 display: flex;
@@ -45,8 +46,22 @@ $secondaryColor: #eb5454;
                     font-size: 1em;
                 }
             }
-            
-            .btn-regis {
+
+            .forgot-login {
+                display: flex;
+                justify-content: flex-end;
+                color: #333;
+                margin: 1em 0;
+                
+                p {
+                    cursor: pointer;
+                    &:hover {
+                        color: #555;
+                    }
+                }
+            }
+
+            .btn-login {
                 button {
                     width: 100%;
                     padding: .5em 1em;
@@ -63,25 +78,34 @@ $secondaryColor: #eb5454;
                     }
                 }
             }
-        
+            .toRegister {
+                display: flex;
+                text-align: center;
+                height: 150px;
+                align-items: center;
+                justify-content: center;
+                color: #333;
+                
+                p {
+                    cursor: pointer;
+                }
+            } 
         }
     }
 }
 
-@media screen and (max-width:1125px) {
-    .regis-wrapper {
-        width: 100%;
-        padding: 2em 0;
-    
-        .regis {
+@media screen and(max-width: 1125px) {
+    .login-wrapper {
+        .login {
             width: 90%;
-    }}    
+        }
+    }
 }
 
 @media screen and (max-width: 576px) {
-    .regis-wrapper {
-        .regis {
-            #regis-form {
+    .login-wrapper {
+        .login {
+            #login-form {
                 width: 100%;
             }
         }

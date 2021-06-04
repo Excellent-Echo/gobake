@@ -1,13 +1,21 @@
-import Axios from 'axios'
 import React, { useState } from 'react'
-import swal from 'sweetalert'
-import { API_URL, resetForm } from '../../utils/utils'
+import {resetForm } from '../../utils/utils'
+import {Redirect, useHistory} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux'
+import { loginToAPI } from "../../config/redux/actions/authAction";
+
+import './login.scss'
 
 function Login() {
 
     const [inputEmail, setEmail] = useState("")
     const [inputPw, setPw] = useState("")
+    const {isLogin} = useSelector(state => state.authReducer)
 
+    const history = useHistory();
+
+    const dispatch = useDispatch()
+    
     const handleSubmit = (e) => {
         
         e.preventDefault()
@@ -17,28 +25,20 @@ function Login() {
             password : inputPw
         }
 
-        console.log(data);
+        dispatch(loginToAPI(data, resetForm("login-form"), history)) 
+    }
 
-        Axios.post(`${API_URL}/users/login`, data)
-            .then((res)=>{
-
-                if (res.data.Data.token) {
-                    localStorage.setItem("user", JSON.stringify(res.data.Data))
-                }
-                swal("Resgister success!", "", "success");
-                resetForm("login-form")
-                console.log(res)
-            })
+    if (isLogin) {
+        return <Redirect to="/" />
     }
 
     return (
         <div className="login-wrapper">
             <div className="login">
                 <form onSubmit={handleSubmit} id="login-form">
-                    <h2>
+                    <h2 className="login-title">
                         Login
                     </h2>
-
                     <div className="input-container">
                     <label htmlFor="email">Email</label>
                     <input onChange={(e) => setEmail(e.target.value)} type="text" name="email" id="email" />
@@ -48,8 +48,14 @@ function Login() {
                     <label htmlFor="password">Password</label>
                     <input onChange={(e) => setPw(e.target.value) } type="password" name="password" id="password" />
                 </div>
+                <div className="forgot-login">
+                    <p>Forgot Password?</p>
+                </div>
                 <div className="btn-login">
-                    <button>Log in</button>
+                    <button>Login</button>
+                </div>
+                <div className="toRegister">
+                    <p onClick={() => history.push("/register")}>Or Sign Up</p>
                 </div>
                 </form>
             </div>

@@ -2,16 +2,17 @@ package product
 
 import (
 	"go-bake/entity"
+	"mime/multipart"
 	"time"
 )
 
 type ProductFormat struct {
-	ID          uint32 `json:"product_id"`
-	ProductName string `json:"product_name"`
-	Stock       string `json:"stock"`
-	Price       string `json:"price"`
-	Description string `json:"description"`
-	Image       string `json:"image"`
+	ID          uint32                `json:"product_id"`
+	ProductName string                `json:"product_name"`
+	Stock       int                   `json:"stock"`
+	Price       float64               `json:"price"`
+	Description string                `json:"description"`
+	Image       *multipart.FileHeader `json:"image"`
 }
 
 type DeleteFormat struct {
@@ -27,7 +28,6 @@ func FormatProduct(product entity.Product) ProductFormat {
 		Stock:       product.Stock,
 		Price:       product.Price,
 		Description: product.Description,
-		Image:       product.Image,
 	}
 	return formatProduct
 }

@@ -19,4 +19,5 @@ func ProductRouter(r *gin.Engine) {
 	r.POST("products/", productHandler.CreateProductHandler)
 	r.PUT("products/:product_id", productHandler.UpdateProductByIDHandler)
 	r.DELETE("products/:product_id", productHandler.DeleteProductByIDHandler)
+
 }

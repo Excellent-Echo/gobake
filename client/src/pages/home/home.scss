@@ -1,0 +1,55 @@
+.home-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    padding: 1em 0;
+
+    .home {
+        min-width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .main-card {
+            .main-card-title {
+                padding: 1em 0;
+            }
+            .cards {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2em;     
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1125px) {
+    .home-wrapper {
+        .home {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and(max-width: 768px) {
+    .home-wrapper {
+        .home {
+            .main-card {
+                .cards {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .home-wrapper {
+        .home {
+            .main-card {
+                .cards {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+            }
+        }
+    }
+}
